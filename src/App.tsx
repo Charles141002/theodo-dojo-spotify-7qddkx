@@ -9,7 +9,10 @@ const App = () => {
         <h1 className="App-title">Bienvenue sur mon blind test</h1>
       </header>
       <div className="App-images">
-        <p>Il va falloir modifier le code pour faire un vrai blind test !</p>
+      <audio src={trackUrls[trackIndex]} autoPlay controls />
+<button onClick={goToNextTrack}>
+    Next track
+</button>
       </div>
       <div className="App-buttons"></div>
     </div>
