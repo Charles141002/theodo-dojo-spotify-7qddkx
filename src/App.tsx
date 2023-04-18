@@ -1,6 +1,8 @@
 import logo from './assets/logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { fetchTracks } from './lib/fetchTracks';
+import { useQuery } from '@tanstack/react-query';
 
 const trackUrls = [
   'https://p.scdn.co/mp3-preview/742294f35af9390e799dd96c633788410a332e52',
@@ -11,6 +13,13 @@ const trackUrls = [
 ];
 
 const App = () => {
+  const { data: tracks } = useQuery({
+    queryKey: ['tracks'],
+    queryFn: fetchTracks,
+  });
+
+  console.log({ data: tracks });
+
   const [trackIndex, setTrackIndex] = useState(0);
 
   const goToNextTrack = () => {
