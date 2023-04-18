@@ -2,7 +2,6 @@ import logo from './assets/logo.svg';
 import './App.css';
 import { useState } from 'react';
 
-
 const trackUrls = [
   'https://p.scdn.co/mp3-preview/742294f35af9390e799dd96c633788410a332e52',
   'https://p.scdn.co/mp3-preview/5a12483aa3b51331aba663131dbac967ccb33d99',
@@ -11,14 +10,12 @@ const trackUrls = [
   'https://p.scdn.co/mp3-preview/ac28d1b0be285ed3bfd8e9fa5fad133776d7cf36',
 ];
 
-const [trackIndex, setTrackIndex] = useState(0)
-
-const goToNextTrack = () => {
-  setTrackIndex(trackIndex + 1);
-}
-
-
 const App = () => {
+  const [trackIndex, setTrackIndex] = useState(0);
+
+  const goToNextTrack = () => {
+    setTrackIndex(trackIndex + 1);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -26,18 +23,14 @@ const App = () => {
         <h1 className="App-title">Bienvenue sur mon blind test</h1>
       </header>
       <div className="App-images">
-        <div>a<audio src={trackUrls[trackIndex]} autoPlay controls />
-<button onClick={goToNextTrack}>
-    Next track
-</button></div>
+        <div>
+          <audio src={trackUrls[trackIndex]} autoPlay controls />
+          <button onClick={goToNextTrack}>Next track</button>
+        </div>
       </div>
       <div className="App-buttons"></div>
     </div>
   );
 };
-
-
-
-
 
 export default App;
